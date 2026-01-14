@@ -9,6 +9,7 @@ import contactUs from './contact-us'
 import travelPurpose from './travel-purpose'
 import curatedBhutanBirding from './curated-bhutan-birding'
 import trek from './trek'
+import birdingTourPage from './birding'
 
 export const schemaTypes = [
    homePage,
@@ -21,6 +22,7 @@ export const schemaTypes = [
    contactUs,
    travelPurpose,
    curatedBhutanBirding,
-   trek
+   trek,
+   birdingTourPage
 ]
 
