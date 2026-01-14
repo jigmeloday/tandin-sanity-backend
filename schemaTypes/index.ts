@@ -10,6 +10,7 @@ import travelPurpose from './travel-purpose'
 import curatedBhutanBirding from './curated-bhutan-birding'
 import trek from './trek'
 import birdingTourPage from './birding'
+import about from './about-us'
 
 export const schemaTypes = [
    homePage,
@@ -23,6 +24,7 @@ export const schemaTypes = [
    travelPurpose,
    curatedBhutanBirding,
    trek,
-   birdingTourPage
+   birdingTourPage,
+   about
 ]
 
