@@ -13,6 +13,8 @@ import birdingTourPage from './birding'
 import about from './about-us'
 import footer from './footer'
 import header from './header'
+import enquiry from './enquiry';
+import subscription from './subscription';
 
 export const schemaTypes = [
    homePage,
@@ -29,6 +31,8 @@ export const schemaTypes = [
    birdingTourPage,
    about,
    footer,
-   header
+   header,
+   enquiry,
+   subscription
 ]
 
