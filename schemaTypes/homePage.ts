@@ -150,8 +150,7 @@ export default defineType({
       ],
     }),
 
-
-     defineField({
+    defineField({
       name: 'section_slug',
       title: 'Bhutan in cloud and all',
       type: 'array',
@@ -232,6 +231,29 @@ export default defineType({
               type: 'string',
             }),
           ],
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'blogTitle',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'blogSubtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'blog',
+      title: 'Blogs',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'blogPost'}],
         }),
       ],
     }),
