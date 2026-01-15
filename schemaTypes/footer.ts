@@ -66,7 +66,7 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({ name: 'label', title: 'Label', type: 'string' }),
-            defineField({ name: 'link', title: 'Link', type: 'url' }),
+            defineField({ name: 'link', title: 'Link', type: 'string' }),
           ],
         }),
       ],
@@ -82,7 +82,7 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({ name: 'label', title: 'Label', type: 'string' }),
-            defineField({ name: 'link', title: 'Link', type: 'url' }),
+            defineField({ name: 'link', title: 'Link', type: 'string' }),
           ],
         }),
       ],

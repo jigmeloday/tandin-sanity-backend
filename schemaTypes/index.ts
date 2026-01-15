@@ -15,6 +15,7 @@ import footer from './footer'
 import header from './header'
 import enquiry from './enquiry';
 import subscription from './subscription';
+import blogPost from './blog';
 
 export const schemaTypes = [
    homePage,
@@ -33,6 +34,7 @@ export const schemaTypes = [
    footer,
    header,
    enquiry,
-   subscription
+   subscription,
+   blogPost
 ]
 
