@@ -11,6 +11,8 @@ import curatedBhutanBirding from './curated-bhutan-birding'
 import trek from './trek'
 import birdingTourPage from './birding'
 import about from './about-us'
+import footer from './footer'
+import header from './header'
 
 export const schemaTypes = [
    homePage,
@@ -25,6 +27,8 @@ export const schemaTypes = [
    curatedBhutanBirding,
    trek,
    birdingTourPage,
-   about
+   about,
+   footer,
+   header
 ]
 
