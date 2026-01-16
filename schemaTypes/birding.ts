@@ -117,7 +117,7 @@ export default defineType({
 
     // LETS TALK SECTION
     defineField({
-      name: 'letsTalkImage',
+      name: 'letsTalk',
       title: "Let's Talk Image",
       type: 'image',
     }),

@@ -302,6 +302,12 @@ export default defineType({
           title: 'Description',
           type: 'text',
         }),
+         defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
         defineField({
           name: 'btn_text',
           title: 'Button Text',

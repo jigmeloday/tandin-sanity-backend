@@ -158,5 +158,11 @@ export default defineType({
       title: "Let's Talk Description",
       type: 'text',
     }),
+     defineField({
+              name: 'letsTalk',
+              title: 'Lets talk Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
   ],
 })

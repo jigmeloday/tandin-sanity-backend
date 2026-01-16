@@ -44,7 +44,12 @@ export default defineType({
     defineField({name: 'letsTalkTitle', title: 'lets Title', type: 'text'}),
     defineField({name: 'letsTalkDescription', title: 'lets Description', type: 'text'}),
     defineField({name: 'letsTalkButton', title: 'lets Button Text', type: 'text'}),
-
+ defineField({
+              name: 'letsTalk',
+              title: 'Lets talk Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
     defineField({
       name: 'bgScroll',
       title: 'Background Scroll Image',

@@ -93,7 +93,12 @@ export default defineType({
     }),
 
     defineField({name: 'letsTalkDescription', title: 'lets Description', type: 'text'}),
-
+defineField({
+              name: 'letsTalk',
+              title: 'Lets talk Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
       defineField({
       name: 'section_slug',
       title: 'Bhutan in cloud and all',
