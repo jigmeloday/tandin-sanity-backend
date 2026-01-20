@@ -2,7 +2,7 @@ import { defineType, defineField, defineArrayMember } from "sanity";
 
 export default defineType({
   name: "curatedBhutanBirding",
-  title: "Curated Bhutan Birding",
+  title: "Curated Adventure",
   type: "document",
   fields: [
     // ============================
