@@ -146,29 +146,52 @@ export default defineType({
       ],
     }),
 
+   defineField({
+  name: 'section_6_background_scroll',
+  title: 'Section 6 - Background Scroll',
+  type: 'object',
+  fields: [
     defineField({
-      name: 'section_6_background_scroll',
-      title: 'Section 6 - Background Scroll',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'image',
-          title: 'Image',
-          type: 'image',
-          options: {hotspot: true},
-        }),
-        defineField({
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'description',
-          title: 'Description',
-          type: 'text',
-        }),
-      ],
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Image', value: 'image' },
+          { title: 'Video', value: 'video' },
+        ],
+        layout: 'dropdown',
+      },
+      validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+      hidden: ({ parent }) => parent?.type !== 'image',
+    }),
+    defineField({
+      name: 'video',
+      title: 'Video File',
+      type: 'file',
+      hidden: ({ parent }) => parent?.type !== 'video',
+      options: {
+        accept: 'video/*',
+      },
+    }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    }),
+  ],
+}),
 
     defineField({
       name: 'section_7',

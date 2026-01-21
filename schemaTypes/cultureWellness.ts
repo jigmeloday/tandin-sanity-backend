@@ -69,7 +69,50 @@ export default defineType({
       options: {hotspot: true},
     }),
 
-    defineField({name: 'bgScrollImage', title: 'Background Image Scroll', type: 'image'}),
+   defineField({
+      name: 'bgScrollImage',
+      title: 'Background Scroll',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'type',
+          title: 'Type',
+          type: 'string',
+          options: {
+            list: [
+              {title: 'Image', value: 'image'},
+              {title: 'Video', value: 'video'},
+            ],
+            layout: 'dropdown',
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          options: {hotspot: true},
+          hidden: ({parent}) => parent?.type !== 'image',
+        }),
+        defineField({
+          name: 'video',
+          title: 'Video File',
+          type: 'file',
+          hidden: ({parent}) => parent?.type !== 'video',
+          options: {accept: 'video/*'},
+        }),
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        }),
+        // defineField({
+        //   name: 'description',
+        //   title: 'Description',
+        //   type: 'text',
+        // }),
+      ],
+    }),
 
     defineField({name: 'section4Title', title: 'Section 4 Title', type: 'text'}),
     defineField({name: 'section4Description', title: 'Section 4 Description', type: 'text'}),

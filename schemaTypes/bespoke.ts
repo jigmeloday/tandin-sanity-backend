@@ -14,7 +14,12 @@ export default defineType({
       options: {source: 'title', maxLength: 96},
     }),
     defineField({name: 'image', title: 'Image', type: 'image', options: {hotspot: true}}),
-    defineField({name: 'bannerImage', title: 'Banner Image', type: 'image', options: {hotspot: true}}),
+    defineField({
+      name: 'bannerImage',
+      title: 'Banner Image',
+      type: 'image',
+      options: {hotspot: true},
+    }),
 
     defineField({
       name: 'section_package',
@@ -38,7 +43,45 @@ export default defineType({
         }),
       ],
     }),
-    defineField({name: 'bgScrollImage', title: 'Background Image Scroll', type: 'image'}),
+
+    defineField({
+      name: 'bgScrollMedia',
+      title: 'Background Media Scroll',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'type',
+          title: 'Type',
+          type: 'string',
+          options: {
+            list: [
+              {title: 'Image', value: 'image'},
+              {title: 'Video', value: 'video'},
+            ],
+            layout: 'dropdown', // ✅ dropdown select
+          },
+        }),
+         defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'text',
+    }),
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          options: {hotspot: true},
+          hidden: ({parent}) => parent?.type !== 'image', // only show if type is image
+        }),
+        defineField({
+          name: 'video',
+          title: 'Video',
+          type: 'file',
+          options: {accept: 'video/*'},
+          hidden: ({parent}) => parent?.type !== 'video', // only show if type is video
+        }),
+      ],
+    }),
     defineField({name: 'travelPurposeTitle', title: 'Travel Purpose Title', type: 'text'}),
     defineField({
       name: 'travelPurposeParagraph1',
@@ -77,6 +120,12 @@ export default defineType({
           to: [{type: 'packageItem'}],
         }),
       ],
+    }),
+    defineField({
+      name: 'letsTalk',
+      title: 'Lets talk Image',
+      type: 'image',
+      options: {hotspot: true},
     }),
     defineField({name: 'letsTalkTitle', title: 'lets Title', type: 'text'}),
     defineField({name: 'letsTalkDescription', title: 'lets Description', type: 'text'}),

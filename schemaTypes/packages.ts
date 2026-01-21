@@ -52,10 +52,38 @@ export default defineType({
     }),
 
     defineField({
+      name: 'imageSectionType',
+      title: 'Media Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Image', value: 'image'},
+          {title: 'Video', value: 'video'},
+        ],
+        layout: 'dropdown',
+      },
+    }),
+
+    defineField({
       name: 'image_section',
-      title: 'Image Section',
+      title: 'Image',
       type: 'image',
+      hidden: ({parent}) => parent?.imageSectionType !== 'image',
       options: {hotspot: true},
+    }),
+
+    defineField({
+      name: 'video_section',
+      title: 'Video',
+      type: 'file',
+      options: {accept: 'video/*'},
+      hidden: ({parent}) => parent?.imageSectionType !== 'video',
+    }),
+
+    defineField({
+      name: 'imageTitle',
+      title: 'Image Section Title',
+      type: 'string',
     }),
 
     defineField({
@@ -93,13 +121,13 @@ export default defineType({
     }),
 
     defineField({name: 'letsTalkDescription', title: 'lets Description', type: 'text'}),
-defineField({
-              name: 'letsTalk',
-              title: 'Lets talk Image',
-              type: 'image',
-              options: {hotspot: true},
-            }),
-      defineField({
+    defineField({
+      name: 'letsTalk',
+      title: 'Lets talk Image',
+      type: 'image',
+      options: {hotspot: true},
+    }),
+    defineField({
       name: 'section_slug',
       title: 'Bhutan in cloud and all',
       type: 'array',
