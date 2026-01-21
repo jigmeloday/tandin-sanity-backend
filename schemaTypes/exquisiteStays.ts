@@ -15,6 +15,8 @@ export default defineType({
       type: 'slug',
       options: {source: 'title', maxLength: 96},
     }),
+    defineField({name: 'bannerImage', title: 'Banner Image', type: 'image', options: {hotspot: true}}),
+
     defineField({name: 'image1', title: 'Image', type: 'image', options: {hotspot: true}}),
     defineField({name: 'image2', title: 'Image 2', type: 'image', options: {hotspot: true}}),
     defineField({name: 'image3', title: 'Image 3', type: 'image', options: {hotspot: true}}),

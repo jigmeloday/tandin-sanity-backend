@@ -13,12 +13,50 @@ export default defineType({
         defineArrayMember({
           type: 'object',
           fields: [
-            defineField({name: 'title', title: 'Title', type: 'string'}),
-            defineField({name: 'image', title: 'Image', type: 'image', options: {hotspot: true}}),
+            defineField({
+              name: 'type',
+              title: 'Type',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'Image', value: 'image'},
+                  {title: 'Video', value: 'video'},
+                ],
+                layout: 'dropdown',
+              },
+              validation: (Rule) => Rule.required(),
+            }),
+
+            // Image field (only shows when type === "image")
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {hotspot: true},
+              hidden: ({parent}) => parent?.type !== 'image',
+            }),
+
+            // Link field (only shows when type === "link")
+            defineField({
+              name: 'video',
+              title: 'Video File',
+              type: 'file',
+              hidden: ({parent}) => parent?.type !== 'video',
+              options: {
+                accept: 'video/*', // restrict to video files
+              },
+            }),
+
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
           ],
         }),
       ],
     }),
+
     // Section 1
     defineField({
       name: 'section_1',
@@ -302,12 +340,12 @@ export default defineType({
           title: 'Description',
           type: 'text',
         }),
-         defineField({
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {hotspot: true},
-            }),
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
         defineField({
           name: 'btn_text',
           title: 'Button Text',

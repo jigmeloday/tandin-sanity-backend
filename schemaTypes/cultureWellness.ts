@@ -8,6 +8,7 @@ export default defineType({
     defineField({name: 'title', title: 'Title', type: 'string'}),
     defineField({name: 'subtitle', title: 'Subtitle', type: 'string'}),
     defineField({name: 'cover', title: 'Cover Image', type: 'image'}),
+    defineField({name: 'bannerImage', title: 'Banner Image', type: 'image', options: {hotspot: true}}),
 
     defineField({name: 'section1_title', title: 'Section 1 Title', type: 'string'}),
     defineField({name: 'section1_subtitle', title: 'Section 1 Subtitle', type: 'string'}),

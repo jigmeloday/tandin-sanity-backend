@@ -14,6 +14,7 @@ export default defineType({
       options: {source: 'title', maxLength: 96},
     }),
     defineField({name: 'image', title: 'Image', type: 'image', options: {hotspot: true}}),
+    defineField({name: 'bannerImage', title: 'Banner Image', type: 'image', options: {hotspot: true}}),
 
     defineField({
       name: 'section_package',
