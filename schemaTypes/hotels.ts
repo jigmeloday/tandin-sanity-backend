@@ -1,11 +1,18 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export default defineType({
-  name: 'exquisite',
-  title: 'Exquisite Stay',
+  name: 'hotels',
+  title: 'Hotels',
   type: 'document',
   fields: [
     defineField({name: 'title', title: 'Title', type: 'string'}),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {source: 'title', maxLength: 96},
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({name: 'subtitle', title: 'Subtitle', type: 'string'}),
     defineField({name: 'herotitle', title: 'Hero Title', type: 'string'}),
     defineField({name: 'herosubtitle', title: 'Hero Subtitle', type: 'string'}),
@@ -103,7 +110,7 @@ export default defineType({
     defineField({name: 'section3Title', title: 'Section 3 Title', type: 'text'}),
     defineField({name: 'section3Description', title: 'Section 3 Description', type: 'text'}),
     defineField({name: 'section3Tagline', title: 'Section 3 Tagline', type: 'text'}),
-       defineField({
+    defineField({
       name: 'section_slug',
       title: 'Hotel Pages',
       type: 'array',
