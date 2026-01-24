@@ -17,12 +17,6 @@ export default defineType({
     defineField({name: 'herotitle', title: 'Hero Title', type: 'string'}),
     defineField({name: 'herosubtitle', title: 'Hero Subtitle', type: 'string'}),
     defineField({
-      name: 'link',
-      title: 'link',
-      type: 'slug',
-      options: {source: 'title', maxLength: 96},
-    }),
-    defineField({
       name: 'bannerImage',
       title: 'Banner Image',
       type: 'image',
