@@ -32,7 +32,15 @@ export default defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Thumnail Image',
+      type: 'image',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
+    }),
+
+     defineField({
+      name: 'bannerImage',
+      title: 'Banner Image',
       type: 'image',
       options: {hotspot: true},
       validation: (Rule) => Rule.required(),

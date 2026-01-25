@@ -47,7 +47,16 @@ export default defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Thumbnail Image',
+      type: 'image',
+      options: {
+        hotspot: true, // allows cropping/focal point
+      },
+    }),
+
+     defineField({
+      name: 'bannerImage',
+      title: 'Banner Image',
       type: 'image',
       options: {
         hotspot: true, // allows cropping/focal point
