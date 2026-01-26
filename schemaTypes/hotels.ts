@@ -23,6 +23,13 @@ export default defineType({
       options: {hotspot: true},
     }),
 
+    defineField({
+      name: 'thumbnailImage',
+      title: 'Thumbnail Image',
+      type: 'image',
+      options: {hotspot: true},
+    }),
+
     defineField({name: 'image1', title: 'Image', type: 'image', options: {hotspot: true}}),
     defineField({name: 'image2', title: 'Image 2', type: 'image', options: {hotspot: true}}),
     defineField({name: 'image3', title: 'Image 3', type: 'image', options: {hotspot: true}}),
