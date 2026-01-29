@@ -1,28 +1,57 @@
-import { defineType, defineField, defineArrayMember } from "sanity";
+import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export default defineType({
-  name: "curatedBhutanBirding",
-  title: "Curated Adventure",
-  type: "document",
+  name: 'curatedBhutanBirding',
+  title: 'Curated Adventure',
+  type: 'document',
   fields: [
     // ============================
     // HERO SECTION
     // ============================
+
     defineField({
-      name: "hero",
-      title: "Hero Section",
-      type: "object",
+      name: 'hero',
+      title: 'Hero Section',
+      type: 'object',
       fields: [
         defineField({
-          name: "backgroundImage",
-          title: "Background Image",
-          type: "image",
-          options: { hotspot: true },
+          name: 'type',
+          title: 'Type',
+          type: 'string',
+          options: {
+            list: [
+              {title: 'Image', value: 'image'},
+              {title: 'Video', value: 'video'},
+            ],
+            layout: 'dropdown',
+          },
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: "title",
-          title: "Hero Title",
-          type: "string",
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          options: {hotspot: true},
+          hidden: ({parent}) => parent?.type !== 'image',
+        }),
+        defineField({
+          name: 'video',
+          title: 'Video File',
+          type: 'file',
+          hidden: ({parent}) => parent?.type !== 'video',
+          options: {
+            accept: 'video/*',
+          },
+        }),
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        }),
+        defineField({
+          name: 'description',
+          title: 'Description',
+          type: 'text',
         }),
       ],
     }),
@@ -31,34 +60,34 @@ export default defineType({
     // SECTION 1 (Text + Slider)
     // ============================
     defineField({
-      name: "section1",
-      title: "Section 1",
-      type: "object",
+      name: 'section1',
+      title: 'Section 1',
+      type: 'object',
       fields: [
         defineField({
-          name: "title",
-          title: "Title",
-          type: "string",
+          name: 'title',
+          title: 'Title',
+          type: 'string',
         }),
         defineField({
-          name: "description",
-          title: "Description",
-          type: "text",
+          name: 'description',
+          title: 'Description',
+          type: 'text',
         }),
         defineField({
-          name: "buttonLabel",
-          title: "Button Label",
-          type: "string",
+          name: 'buttonLabel',
+          title: 'Button Label',
+          type: 'string',
         }),
 
         defineField({
-          name: "sliderImages",
-          title: "Slider Images",
-          type: "array",
+          name: 'sliderImages',
+          title: 'Slider Images',
+          type: 'array',
           of: [
             defineArrayMember({
-              type: "image",
-              options: { hotspot: true },
+              type: 'image',
+              options: {hotspot: true},
             }),
           ],
         }),
@@ -69,56 +98,56 @@ export default defineType({
     // SECTION 2 (3 Blocks + 3 Image Grid)
     // ============================
     defineField({
-      name: "section2",
-      title: "Section 2",
-      type: "object",
+      name: 'section2',
+      title: 'Section 2',
+      type: 'object',
       fields: [
         defineField({
-          name: "topBlocks",
-          title: "Top Three Blocks",
-          type: "array",
+          name: 'topBlocks',
+          title: 'Top Three Blocks',
+          type: 'array',
           of: [
             defineArrayMember({
-              type: "object",
+              type: 'object',
               fields: [
                 defineField({
-                  name: "title",
-                  title: "Title",
-                  type: "string",
+                  name: 'title',
+                  title: 'Title',
+                  type: 'string',
                 }),
                 defineField({
-                  name: "description",
-                  title: "Description",
-                  type: "text",
-                })
+                  name: 'description',
+                  title: 'Description',
+                  type: 'text',
+                }),
               ],
             }),
           ],
         }),
 
         defineField({
-          name: "bottomGrid",
-          title: "Bottom Image Grid",
-          type: "array",
+          name: 'bottomGrid',
+          title: 'Bottom Image Grid',
+          type: 'array',
           of: [
             defineArrayMember({
-              type: "object",
+              type: 'object',
               fields: [
                 defineField({
-                  name: "image",
-                  title: "Image",
-                  type: "image",
-                  options: { hotspot: true },
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                  options: {hotspot: true},
                 }),
                 defineField({
-                  name: "title",
-                  title: "Title",
-                  type: "string",
+                  name: 'title',
+                  title: 'Title',
+                  type: 'string',
                 }),
                 defineField({
-                  name: "description",
-                  title: "Description",
-                  type: "text",
+                  name: 'description',
+                  title: 'Description',
+                  type: 'text',
                 }),
               ],
             }),
@@ -131,32 +160,32 @@ export default defineType({
     // SECTION 3 – GETAWAYS
     // ============================
     defineField({
-      name: "getaways",
-      title: "Getaways Section",
-      type: "object",
+      name: 'getaways',
+      title: 'Getaways Section',
+      type: 'object',
       fields: [
         defineField({
-          name: "title",
-          title: "Title",
-          type: "string",
+          name: 'title',
+          title: 'Title',
+          type: 'string',
         }),
         defineField({
-          name: "description",
-          title: "Description",
-          type: "text",
+          name: 'description',
+          title: 'Description',
+          type: 'text',
         }),
 
-    defineField({
-      name: 'getaways_cards',
-      title: 'Treks',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{type: 'trek'}],
+        defineField({
+          name: 'getaways_cards',
+          title: 'Treks',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'reference',
+              to: [{type: 'trek'}],
+            }),
+          ],
         }),
-      ],
-    }),
       ],
     }),
 
@@ -164,15 +193,15 @@ export default defineType({
     // SECTION 4 – TRAVEL WITH PURPOSE
     // ============================
     defineField({
-      name: "travelPurpose",
-      title: "Travel With Purpose Section",
-      type: "object",
+      name: 'travelPurpose',
+      title: 'Travel With Purpose Section',
+      type: 'object',
       fields: [
-        defineField({ name: "image", title: "Image", type: "image" }),
-        defineField({ name: "title", title: "Title", type: "string" }),
-        defineField({ name: "description1", title: "Paragraph 1", type: "text" }),
-        defineField({ name: "description2", title: "Paragraph 2", type: "text" }),
-        defineField({ name: "buttonLink", title: "Button Link", type: "string" }),
+        defineField({name: 'image', title: 'Image', type: 'image'}),
+        defineField({name: 'title', title: 'Title', type: 'string'}),
+        defineField({name: 'description1', title: 'Paragraph 1', type: 'text'}),
+        defineField({name: 'description2', title: 'Paragraph 2', type: 'text'}),
+        defineField({name: 'buttonLink', title: 'Button Link', type: 'string'}),
       ],
     }),
 
@@ -180,40 +209,40 @@ export default defineType({
     // SECTION 5 – BROCHURE
     // ============================
     defineField({
-      name: "brochure",
-      title: "Brochure Section",
-      type: "object",
+      name: 'brochure',
+      title: 'Brochure Section',
+      type: 'object',
       fields: [
         defineField({
-          name: "images",
-          title: "Brochure Images",
-          type: "array",
-          of: [{ type: "image" }],
+          name: 'images',
+          title: 'Brochure Images',
+          type: 'array',
+          of: [{type: 'image'}],
         }),
         defineField({
-          name: "title",
-          title: "Title",
-          type: "string",
+          name: 'title',
+          title: 'Title',
+          type: 'string',
         }),
         defineField({
-          name: "subtitle",
-          title: "Subtitle",
-          type: "string",
+          name: 'subtitle',
+          title: 'Subtitle',
+          type: 'string',
         }),
         defineField({
-          name: "description",
-          title: "Description",
-          type: "text",
+          name: 'description',
+          title: 'Description',
+          type: 'text',
         }),
         defineField({
-          name: "cta1",
-          title: "CTA 1 Text",
-          type: "string",
+          name: 'cta1',
+          title: 'CTA 1 Text',
+          type: 'string',
         }),
         defineField({
-          name: "cta2",
-          title: "CTA 2 Text",
-          type: "string",
+          name: 'cta2',
+          title: 'CTA 2 Text',
+          type: 'string',
         }),
       ],
     }),
@@ -222,22 +251,22 @@ export default defineType({
     // SECTION 6 – LET’S TALK
     // ============================
     defineField({
-      name: "letsTalk",
+      name: 'letsTalk',
       title: "Let's Talk Section",
-      type: "object",
+      type: 'object',
       fields: [
         defineField({
-          name: "description",
-          title: "Description",
-          type: "text",
+          name: 'description',
+          title: 'Description',
+          type: 'text',
         }),
-           defineField({
-              name: 'letsTalk',
-              title: 'Lets talk Image',
-              type: 'image',
-              options: {hotspot: true},
-            }),
+        defineField({
+          name: 'letsTalk',
+          title: 'Lets talk Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
       ],
     }),
   ],
-});
+})
