@@ -181,12 +181,28 @@ export default defineType({
       type: 'string',
     }),
 
-    defineField({name: 'letsTalkDescription', title: 'lets Description', type: 'text'}),
-     defineField({
-              name: 'letsTalk',
-              title: 'Lets talk Image',
-              type: 'image',
-              options: {hotspot: true},
-            }),
+    defineField({
+      name: 'blogTitle',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'blogSubtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'blog',
+      title: 'Blogs',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'blogPost'}],
+        }),
+      ],
+    }),
+
   ],
 })
