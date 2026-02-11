@@ -35,8 +35,14 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'image',
+          name: 'heroImage',
           title: 'Hero Background Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+         defineField({
+          name: 'image',
+          title: 'Thumbnail Image',
           type: 'image',
           options: {hotspot: true},
         }),
