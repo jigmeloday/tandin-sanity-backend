@@ -5,6 +5,7 @@ export default defineType({
   title: 'Home Page',
   type: 'document',
   fields: [
+    
     defineField({
       name: 'hero',
       title: 'Hero Slider',
@@ -90,6 +91,8 @@ export default defineType({
     }),
 
     // Section 3 - Flagship
+     defineField({name: 'flagShipTitle', title: 'Title', type: 'string'}),
+        defineField({name: 'flagShipdescription', title: 'Description', type: 'text'}),
     defineField({
       name: 'section_3',
       title: 'Flagship Packages',
