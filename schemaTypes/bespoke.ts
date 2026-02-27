@@ -13,6 +13,16 @@ export default defineType({
       type: 'slug',
       options: {source: 'title', maxLength: 96},
     }),
+     defineField({
+      name: 'section_1',
+      title: 'Introduction Section',
+      type: 'object',
+      fields: [
+        defineField({name: 'title', title: 'Title', type: 'string'}),
+        defineField({name: 'description', title: 'Description', type: 'text'}),
+        defineField({name: 'tag_line', title: 'Tagline', type: 'string'}),
+      ],
+    }),
     defineField({name: 'image', title: 'Image', type: 'image', options: {hotspot: true}}),
     defineField({
       name: 'bannerImage',
@@ -21,28 +31,28 @@ export default defineType({
       options: {hotspot: true},
     }),
 
-    defineField({
-      name: 'section_package',
-      title: 'Packages',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{type: 'packageItem'}],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'section_othere_package',
-      title: 'Packages',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{type: 'packageItem'}],
-        }),
-      ],
-    }),
+    // defineField({
+    //   name: 'section_package',
+    //   title: 'Packages',
+    //   type: 'array',
+    //   of: [
+    //     defineArrayMember({
+    //       type: 'reference',
+    //       to: [{type: 'packageItem'}],
+    //     }),
+    //   ],
+    // }),
+    // defineField({
+    //   name: 'section_othere_package',
+    //   title: 'Packages',
+    //   type: 'array',
+    //   of: [
+    //     defineArrayMember({
+    //       type: 'reference',
+    //       to: [{type: 'packageItem'}],
+    //     }),
+    //   ],
+    // }),
 
     defineField({
       name: 'bgScrollMedia',
@@ -82,6 +92,17 @@ export default defineType({
         }),
       ],
     }),
+     defineField({
+      name: 'section_slug',
+      title: 'Bhutan in cloud and all',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'slugPage'}],
+        }),
+      ],
+    }),
     defineField({name: 'travelPurposeTitle', title: 'Travel Purpose Title', type: 'text'}),
     defineField({
       name: 'travelPurposeParagraph1',
@@ -95,32 +116,96 @@ export default defineType({
     }),
     defineField({name: 'travelPurposeButton', title: 'Travel Purpose Button Text', type: 'text'}),
 
-    defineField({name: 'section1Title', title: 'Other Related Title', type: 'text'}),
-    defineField({name: 'section1Description', title: 'Other Related Description', type: 'text'}),
-    defineField({name: 'section1Tagline', title: 'Other Related Tagline', type: 'text'}),
+    defineField({
+      name: 'section_10_slider',
+      title: 'Section 10 Slider',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'img',
+              title: 'Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'subtitle',
+              title: 'Subtitle',
+              type: 'string',
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+            }),
+            defineField({
+              name: 'cta',
+              title: 'CTA Text',
+              type: 'string',
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'blogTitle',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'blogSubtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
 
     defineField({
-      name: 'section_second_last_package',
-      title: 'Packages',
+      name: 'blog',
+      title: 'Blogs',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{type: 'packageItem'}],
+          to: [{type: 'blogPost'}],
         }),
       ],
     }),
+
     defineField({
-      name: 'section_last_package',
-      title: 'Packages',
+      name: 'section_12',
+      title: 'Section 12 - Featured Cards',
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'reference',
-          to: [{type: 'packageItem'}],
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
+            defineField({
+              name: 'links',
+              title: 'Link',
+              type: 'text',
+            }),
+          ],
         }),
       ],
     }),
+    
     defineField({
       name: 'letsTalk',
       title: 'Lets talk Image',
