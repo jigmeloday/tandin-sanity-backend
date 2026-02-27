@@ -134,18 +134,28 @@ export default defineType({
       ],
     }),
 
-    defineField({
-      name: 'section_5',
-      title: 'Packages',
+    // defineField({
+    //   name: 'section_5',
+    //   title: 'Packages',
+    //   type: 'array',
+    //   of: [
+    //     defineArrayMember({
+    //       type: 'reference',
+    //       to: [{type: 'packageItem'}],
+    //     }),
+    //   ],
+    // }),
+defineField({
+      name: 'relatedTreks',
+      title: 'Related Treks',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{type: 'packageItem'}],
+          to: [{type: 'trek'}],
         }),
       ],
     }),
-
    defineField({
   name: 'section_6_background_scroll',
   title: 'Section 6 - Background Scroll',
