@@ -46,6 +46,12 @@ export default defineType({
           type: 'image',
           options: {hotspot: true},
         }),
+         defineField({
+          name: 'image2',
+          title: 'Home Page Thumbnail Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
         defineField({name: 'title', title: 'Hero Title', type: 'string'}),
         defineField({name: 'subtitle', title: 'Hero Subtitle', type: 'string'}),
       ],
