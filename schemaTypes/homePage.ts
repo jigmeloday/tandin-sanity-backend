@@ -91,20 +91,31 @@ export default defineType({
     }),
 
     // Section 3 - Flagship
-     defineField({name: 'flagShipTitle', title: 'Title', type: 'string'}),
-        defineField({name: 'flagShipdescription', title: 'Description', type: 'text'}),
-    defineField({
-      name: 'section_3',
-      title: 'Flagship Packages',
+    //  defineField({name: 'flagShipTitle', title: 'Title', type: 'string'}),
+    //     defineField({name: 'flagShipdescription', title: 'Description', type: 'text'}),
+    // defineField({
+    //   name: 'section_3',
+    //   title: 'Flagship Packages',
+    //   type: 'array',
+    //   of: [
+    //     defineArrayMember({
+    //       type: 'reference',
+    //       to: [{type: 'flagship'}],
+    //     }),
+    //   ],
+    // }),
+
+     defineField({
+      name: 'hotels',
+      title: 'Hotel Pages',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{type: 'flagship'}],
+          to: [{type: 'hotels'}],
         }),
       ],
     }),
-
     defineField({
       name: 'section_4',
       title: 'From Dream to Departure',
